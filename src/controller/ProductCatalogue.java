@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,10 @@ public class ProductCatalogue extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductStore store=ProductStore.getInstance();
+		ServletContext ctx = getServletContext();
+		InputStream is = ctx.getResourceAsStream("/resources/products.xml");
+		ProductStore store=ProductStore.getInstance(is);
+		is.close();
 		HttpSession current=request.getSession();
 		RequestDispatcher view = request.getRequestDispatcher("/productCatalogue.jsp");
 		request.setAttribute("products", store.getProducts());

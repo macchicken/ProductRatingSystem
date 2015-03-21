@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<name>Internet and WWW How To Program</name>
+		<price>121.99</price>
+		<authors>PaulDeitel, Harvey Deitel and Abbey Deitel</authors>
+		<paperBack>992</paperBack>
+		<language>English</language>
+		<isbn10>0132151006</isbn10>
+		<isbn13>978-0132151009</isbn13>
+		<publisher>Prentice Hall; 5 edition (November 19, 2011)</publisher>
+		<imgFile>51cjTlMm51L.jpg</imgFile>
+	</product>
+	<product>
+		<name>Web application architecture</name>
+		<price>54.56</price>
+		<authors>Leon Shklar and Rich Rosen</authors>
+		<paperBack>440</paperBack>
+		<language>English</language>
+		<isbn10>047051860X</isbn10>
+		<isbn13>978-0470518601</isbn13>
+		<publisher>Wiley; 2 edition (April 27, 2009)</publisher>
+		<imgFile>71mcSbxVqML.jpg</imgFile>
+	</product>
+	<product>
+		<name>Design Patterns</name>
+		<price>39.53</price>
+		<authors>Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides</authors>
+		<paperBack>395</paperBack>
+		<language>English</language>
+		<isbn10>0201633612</isbn10>
+		<isbn13>978-0201633610</isbn13>
+		<publisher>Addison-Wesley Professional; 1 edition (November 10, 1994)</publisher>
+		<imgFile>81gtKoapHFL.jpg</imgFile>
+	</product>
+	<product>
+		<name>Head First Servlets and JSP</name>
+		<price>35.46</price>
+		<authors>Bryan Basham , Kathy Sierra and Bert Bates</authors>
+		<paperBack>914</paperBack>
+		<language>English</language>
+		<isbn10>0596516681</isbn10>
+		<isbn13>978-0596516680</isbn13>
+		<publisher>O'Reilly Media; Second Edition edition (April 4, 2008)</publisher>
+		<imgFile>51u39QvXVeL.jpg</imgFile>
+	</product>
+</products>

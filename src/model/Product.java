@@ -11,7 +11,7 @@ public class Product {
 	private int totalRating;
 	private float price;
 	private int paperBack;
-	private Publisher publisher;
+	private String publisher;
 	private String language;
 	private String isbn10;
 	private String isbn13;
@@ -20,6 +20,10 @@ public class Product {
 		super();
 		this.name = name;
 		this.price = price;
+	}
+
+	public Product() {
+		super();
 	}
 
 	public String getName() {
@@ -54,11 +58,11 @@ public class Product {
 		this.paperBack = paperBack;
 	}
 
-	public Publisher getPublisher() {
+	public String getPublisher() {
 		return publisher;
 	}
 
-	public void setPublisher(Publisher publisher) {
+	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
 
@@ -114,6 +118,12 @@ public class Product {
 
 	public void setImgFile(String imgFile) {
 		this.imgFile = imgFile;
+	}
+
+	@Override
+	public String toString() {
+		return "name: "+name+" imgFile: "+imgFile+" authors: "+authors+" price: "+price+" paperBack: "+paperBack
+				+" publisher: "+publisher+" language: "+language+" isbn10: "+isbn10+" isbn13: "+isbn13;
 	}
 
 }
