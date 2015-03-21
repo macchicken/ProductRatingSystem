@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Product;
-import model.Publisher;
 import model.User;
+
 import common.ProductStore;
 
 /**

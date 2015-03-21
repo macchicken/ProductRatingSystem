@@ -64,7 +64,7 @@ public class ProductStore {
 		d.setPublisher(new Publisher("O'Reilly Media",2,new Date(2008-1900,3,4)));
 		d.setImgFile("51u39QvXVeL.jpg");
 		stores.add(d);*/
-		stores=parserXml(resource,stores);
+		stores=parserXml(stores);
 	}
 
 	public static ProductStore getInstance(InputStream res) {
@@ -88,11 +88,12 @@ public class ProductStore {
 		return stores.get(index);
 	}
 
-	private ArrayList<Product> parserXml(InputStream resouceFile,ArrayList<Product> targetStore){
+	private ArrayList<Product> parserXml(ArrayList<Product> targetStore){
 		try {
+			if (resource==null){return targetStore;}
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document document = db.parse(resouceFile);
+			Document document = db.parse(resource);
 			NodeList objects = document.getChildNodes();
 			for (int i = 0; i < objects.getLength(); i++) {
 				Node obj = objects.item(i);
@@ -129,7 +130,7 @@ public class ProductStore {
 		} catch (IOException e) {System.out.println(e.getMessage());
 		}finally{
 			try {
-				resouceFile.close();
+				if (resource!=null) {resource.close();}
 			} catch (IOException e) {System.out.println(e.getMessage());
 			}
 		}
