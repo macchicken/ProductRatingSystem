@@ -80,11 +80,11 @@ public class ProductStore {
 		stores.set(index,p);
 	}
 	
-	public synchronized ArrayList<Product> getProducts(){
+	public ArrayList<Product> getProducts(){
 		return stores;
 	}
 
-	public synchronized Product getProdcut(int index){
+	public Product getProdcut(int index){
 		return stores.get(index);
 	}
 

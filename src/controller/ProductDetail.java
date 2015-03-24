@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -40,9 +39,7 @@ public class ProductDetail extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String proid = (String) request.getParameter("proid");
 		ServletContext ctx = getServletContext();
-		InputStream is = ctx.getResourceAsStream("/resources/products.xml");
-		ProductStore store = ProductStore.getInstance(is);
-		is.close();
+		ProductStore store = (ProductStore) ctx.getAttribute("store");
 		Product p = store.getProdcut(Integer.parseInt(proid));
 		HttpSession current=request.getSession();
 		RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
@@ -71,9 +68,7 @@ public class ProductDetail extends HttpServlet {
 			String selectedRate = (String) request.getParameter("selectedrate");
 			String proid = (String) request.getParameter("proid");
 			ServletContext ctx = getServletContext();
-			InputStream is = ctx.getResourceAsStream("/resources/products.xml");
-			ProductStore store = ProductStore.getInstance(is);
-			is.close();
+			ProductStore store = (ProductStore) ctx.getAttribute("store");
 			Product p = store.getProdcut(Integer.parseInt(proid));
 			p.addRating(Integer.parseInt(selectedRate));
 			store.modifyProdcut(Integer.parseInt(proid), p);
