@@ -14,6 +14,7 @@ import common.ProductStore;
 
 /**
  * Servlet implementation class InitSystem
+ * for initialisation of pre-setting
  */
 @WebServlet("/InitSystem")
 public class InitSystem extends HttpServlet {
