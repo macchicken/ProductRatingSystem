@@ -1,4 +1,4 @@
 # ProductRatingSystem
 Product Rating System, Course work
 
-user http://localhost:10080/ProductRatingSystem/ProductCatalogue access catalogue of products
+type http://localhost:10080/ProductRatingSystem/ to start accessing the system 
