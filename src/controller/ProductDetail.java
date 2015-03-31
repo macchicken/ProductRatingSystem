@@ -37,23 +37,28 @@ public class ProductDetail extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String proid = (String) request.getParameter("proid");
-		ServletContext ctx = getServletContext();
-		ProductStore store = (ProductStore) ctx.getAttribute("store");
-		Product p = store.getProdcut(Integer.parseInt(proid));
 		HttpSession current=request.getSession();
-		RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
-		String pub = p.getPublisher();
-		/*String publisherInfo = pub.getPress() + "; "
+		User currentUser=(User) current.getAttribute("currentUser");
+		if (currentUser==null){
+			RequestDispatcher view = request.getRequestDispatcher("/rateFail.jsp");
+			view.forward(request, response);
+		}else{
+			String proid = (String) request.getParameter("proid");
+			ServletContext ctx = getServletContext();
+			ProductStore store = (ProductStore) ctx.getAttribute("store");
+			Product p = store.getProdcut(Integer.parseInt(proid));
+			String pub = p.getPublisher();
+			/*String publisherInfo = pub.getPress() + "; "
 				+ String.valueOf(pub.getEdition()) + " edition ("
 				+ pub.getGetDisplayPublishDate() + ")";*/
-		request.setAttribute("product", p);
-		request.setAttribute("productId", proid);
-		request.setAttribute("publisherInfo", pub);
-		User currentUser=(User) current.getAttribute("currentUser");
-		int youtRating=currentUser==null?0:currentUser.getProductRating()[Integer.parseInt(proid)];
-		request.setAttribute("yourRating", youtRating);
-		view.forward(request, response);
+			request.setAttribute("product", p);
+			request.setAttribute("productId", proid);
+			request.setAttribute("publisherInfo", pub);
+			int youtRating=currentUser.getProductRating()[Integer.parseInt(proid)];
+			request.setAttribute("yourRating", youtRating);
+			RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
+			view.forward(request, response);
+		}
 	}
 
 	/**

@@ -30,17 +30,22 @@ public class InitSystem extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		InputStream is=null;
 		try {
 			ServletContext ctx = getServletContext();
-			InputStream is = ctx.getResourceAsStream("/resources/products.xml");
+			is = ctx.getResourceAsStream("/resources/products.xml");
 			ProductStore store = ProductStore.getInstance(is);
 			getServletContext().setAttribute("store", store);
-			is.close();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
+		}finally{
+			try {
+				if (is!=null){is.close();}
+				request.getRequestDispatcher("/ProductCatalogue").forward(request, response);
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				throw new ServletException(e);
+			}
 		}
-		request.getRequestDispatcher("/ProductCatalogue").forward(request, response);
 	}
 
 	/**

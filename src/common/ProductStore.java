@@ -72,12 +72,20 @@ public class ProductStore {
 		return ProductStoreHolder.INSTANCE;
 	}
 	
-	public synchronized void addProdcut(Product p){
-		stores.add(p);
+	public void addProdcut(Product p){
+		if (stores!=null) {
+			synchronized (stores) {
+				stores.add(p);
+			}
+		}
 	}
 
-	public synchronized void modifyProdcut(int index,Product p){
-		stores.set(index,p);
+	public void modifyProdcut(int index,Product p){
+		if (stores!=null) {
+			synchronized (stores) {
+				stores.set(index, p);
+			}
+		}
 	}
 	
 	public ArrayList<Product> getProducts(){
