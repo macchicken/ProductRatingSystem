@@ -123,7 +123,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "name: "+name+" imgFile: "+imgFile+" authors: "+authors+" price: "+price+" paperBack: "+paperBack
-				+" publisher: "+publisher+" language: "+language+" isbn10: "+isbn10+" isbn13: "+isbn13;
+				+" publisher: "+publisher+" language: "+language+" isbn10: "+isbn10+" isbn13: "+isbn13+" averageRating: "+averageRating;
 	}
 
 }

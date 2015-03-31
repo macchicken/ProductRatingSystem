@@ -40,7 +40,7 @@ public class InitSystem extends HttpServlet {
 		}finally{
 			try {
 				if (is!=null){is.close();}
-				request.getRequestDispatcher("/ProductCatalogue").forward(request, response);
+				request.getRequestDispatcher("/ProductCatalogue.do").forward(request, response);
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 				throw new ServletException(e);

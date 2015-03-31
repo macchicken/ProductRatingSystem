@@ -15,7 +15,7 @@
   <p><img src="resources/${product.imgFile}" width="383" height="500"/></p>
   <c:choose>
   <c:when test="${yourRating==0}">
-  <form action="ProductDetail" method="post">
+  <form action="ProductDetail.do" method="post">
   	Rating:
   	<select name="selectedrate">
 	  <c:forEach var="i" begin="0" end="4" step="1">
@@ -45,7 +45,7 @@
   	<p><Strong>Language:</Strong> ${product.language}</p>
   	<p><Strong>ISBN-10:</Strong> ${product.isbn10}</p>
   	<p><Strong>ISBN-13:</Strong> ${product.isbn13}</p>
-  	<p><a href="ProductCatalogue">back</a></p>
+  	<p><a href="ProductCatalogue.do">back</a></p>
   </td>
 </tr>
 </table>

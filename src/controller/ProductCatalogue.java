@@ -18,7 +18,7 @@ import common.ProductStore;
 /**
  * Servlet implementation class ProductCatalogue
  */
-@WebServlet(description = "Product Catalogue", urlPatterns = { "/ProductCatalogue" })
+@WebServlet(description = "Product Catalogue", urlPatterns = { "/ProductCatalogue.do" })
 public class ProductCatalogue extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

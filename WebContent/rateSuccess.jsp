@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>You rate ${rate+1} on ${pname} </h1>
-<p><a href="ProductCatalogue">back to product list</a></p>
+<p><a href="ProductCatalogue.do">back to product list</a></p>
 </body>
 </html>

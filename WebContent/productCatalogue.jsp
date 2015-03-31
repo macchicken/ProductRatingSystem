@@ -21,8 +21,8 @@ a{text-decoration:none;}
   		<tr>
   	</c:if>
 		<td>
-		<p><a href="ProductDetail?proid=${productCount.count-1}">${pro.name}</a></p>
-		<p><a href="ProductDetail?proid=${productCount.count-1}"><img src="resources/${pro.imgFile}" width="383" height="500"/></a></p>
+		<p><a href="ProductDetail.do?proid=${productCount.count-1}">${pro.name}</a></p>
+		<p><a href="ProductDetail.do?proid=${productCount.count-1}"><img src="resources/${pro.imgFile}" width="383" height="500"/></a></p>
 		<p>Price: $${pro.price}</p>
 		<c:if test="${currentUser.productRating[productCount.count-1]!=0}">
 			<p>Your Rating: ${currentUser.productRating[productCount.count-1]+1}</p>

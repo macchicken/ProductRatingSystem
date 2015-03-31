@@ -19,7 +19,7 @@ import common.ProductStore;
 /**
  * Servlet implementation class ProductDetail
  */
-@WebServlet(description = "Product Detail", urlPatterns = { "/ProductDetail" })
+@WebServlet(description = "Product Detail", urlPatterns = { "/ProductDetail.do" })
 public class ProductDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -79,9 +79,14 @@ public class ProductDetail extends HttpServlet {
 			store.modifyProdcut(Integer.parseInt(proid), p);
 			currentUser.setProductRating(Integer.parseInt(proid), Integer.parseInt(selectedRate));
 			current.setAttribute("currentUser", currentUser);
-			RequestDispatcher view = request.getRequestDispatcher("/rateSuccess.jsp");
-			request.setAttribute("rate", selectedRate);
-			request.setAttribute("pname", p.getName());
+//			RequestDispatcher view = request.getRequestDispatcher("/rateSuccess.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
+//			request.setAttribute("rate", selectedRate);
+//			request.setAttribute("pname", p.getName());
+			request.setAttribute("product", p);
+			request.setAttribute("productId", proid);
+			request.setAttribute("publisherInfo", p.getPublisher());
+			request.setAttribute("yourRating", Integer.parseInt(selectedRate));
 			view.forward(request, response);
 		}else{
 			RequestDispatcher view = request.getRequestDispatcher("/rateFail.jsp");
