@@ -18,8 +18,8 @@
   <form action="ProductDetail.do" method="post">
   	Rating:
   	<select name="selectedrate">
-	  <c:forEach var="i" begin="0" end="4" step="1">
-		<option value ="${i}">${i+1}</option>
+	  <c:forEach var="i" begin="1" end="5" step="1">
+		<option value ="${i}">${i}</option>
 		</c:forEach>
 	</select>
 	<input type="text" id="proid" name="proid" value="${productId}" hidden/>
@@ -27,7 +27,7 @@
   </form>
   </c:when>
   <c:otherwise>  
-    <h4>Your Rating: ${yourRating+1}</h4>
+    <h4>Your Rating: ${yourRating}</h4>
   </c:otherwise>
   </c:choose>
   <h4>Average Rating: ${product.averageRating}</h4>

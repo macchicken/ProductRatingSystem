@@ -35,7 +35,7 @@ public class Publisher {
 	}
 
 	public Date getPublishDate() {
-		return publishDate;
+		return (Date) publishDate.clone();
 	}
 
 	public void setPublishDate(Date publishDate) {

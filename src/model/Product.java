@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 
 public class Product {
 
@@ -91,11 +93,11 @@ public class Product {
 	}
 
 	public int[] getRatings() {
-		return ratings;
+		return Arrays.copyOf(ratings,ratings.length);
 	}
 
 	public void addRating(int rating){
-		ratings[rating]=ratings[rating]+1;
+		ratings[rating-1]=ratings[rating-1]+1;
 	}
 	
 	public int getTotalRating(){
