@@ -18,7 +18,7 @@
   <form action="ProductDetail.do" method="post">
   	Rating:
   	<select name="selectedrate">
-	  <c:forEach var="i" begin="1" end="5" step="1">
+	  <c:forEach var="i" begin="1" end="${applicationScope.ratingRange}" step="1">
 		<option value ="${i}">${i}</option>
 		</c:forEach>
 	</select>
@@ -33,7 +33,7 @@
   <h4>Average Rating: ${product.averageRating}</h4>
 	<ul>
 	  <c:forEach var="rate" items="${product.ratings}" varStatus="rCount">
-	  	<li>rate ${rCount.count}: ${rate}</li>
+	  	<li>rate ${applicationScope.ratingRange-rCount.index}: ${product.ratings[applicationScope.ratingRange-rCount.index-1]}</li>
 	  </c:forEach>
 	</ul>
   </td>

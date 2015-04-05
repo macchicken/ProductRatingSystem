@@ -36,7 +36,8 @@ public class InitSystem extends HttpServlet {
 			ServletContext ctx = getServletContext();
 			is = ctx.getResourceAsStream("/resources/products.xml");
 			ProductStore store = ProductStore.getInstance(is);
-			getServletContext().setAttribute("store", store);
+			ctx.setAttribute("store", store);
+			ctx.setAttribute("ratingRange", 5);
 		}finally{
 			try {
 				if (is!=null){is.close();}
