@@ -28,7 +28,6 @@ public class ProductDetail extends HttpServlet {
 	 */
 	public ProductDetail() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -37,12 +36,12 @@ public class ProductDetail extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession current=request.getSession();
-		User currentUser=(User) current.getAttribute("currentUser");
-		if (currentUser==null){
+		HttpSession current=request.getSession(false);
+		if (current==null){
 			RequestDispatcher view = request.getRequestDispatcher("/rateFail.jsp");
 			view.forward(request, response);
 		}else{
+			User currentUser=(User) current.getAttribute("currentUser");
 			String proid = (String) request.getParameter("proid");
 			ServletContext ctx = getServletContext();
 			ProductStore store = (ProductStore) ctx.getAttribute("store");
@@ -67,9 +66,9 @@ public class ProductDetail extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession current=request.getSession();
-		User currentUser=(User) current.getAttribute("currentUser");
-		if (currentUser!=null){
+		HttpSession current=request.getSession(false);
+		if (current!=null){
+			User currentUser=(User) current.getAttribute("currentUser");
 			String selectedRate = (String) request.getParameter("selectedrate");
 			String proid = (String) request.getParameter("proid");
 			ServletContext ctx = getServletContext();
