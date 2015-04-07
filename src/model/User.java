@@ -2,7 +2,12 @@ package model;
 
 import java.util.Arrays;
 
-public class User {
+public class User implements java.io.Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9072404275632389401L;
 
 	private int[] productRating;
 
