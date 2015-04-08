@@ -34,10 +34,15 @@ public class InitSystem extends HttpServlet {
 		InputStream is=null;
 		try {
 			ServletContext ctx = getServletContext();
-			is = ctx.getResourceAsStream("/resources/products.xml");
-			ProductStore store = ProductStore.getInstance(is);
-			ctx.setAttribute("store", store);
-			ctx.setAttribute("ratingRange", 5);
+			synchronized (ctx) {
+				ProductStore store=(ProductStore) ctx.getAttribute("store");
+				if (store==null) {
+					is = ctx.getResourceAsStream("/resources/products.xml");
+					store = ProductStore.getInstance(is);
+					ctx.setAttribute("store", store);
+					ctx.setAttribute("ratingRange", 5);
+				}
+			}
 		}finally{
 			try {
 				if (is!=null){is.close();}
