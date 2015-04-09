@@ -2,15 +2,17 @@ package model;
 
 import java.util.Arrays;
 
-
+/*
+ * model for the products in this rating system
+ */
 public class Product {
 
 	private String name;
-	private String imgFile;
+	private String imgFile;// name of the product image file
 	private String authors;
-	private int[] ratings=new int[5];
+	private int[] ratings=new int[5];// each rating count for a product
 	private float averageRating;
-	private int totalRating;
+	private int totalRating;// total number of rating
 	private float price;
 	private int paperBack;
 	private String publisher;

@@ -2,6 +2,9 @@ package model;
 
 import java.util.Arrays;
 
+/*
+ * model for storing the users data
+ */
 public class User implements java.io.Serializable{
 
 	/**
