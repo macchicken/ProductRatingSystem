@@ -2,7 +2,7 @@
 <project basedir="." default="appwar" name="ProductRatingSystem">
 <property name="webContent" value="WebContent"/>
 <target name="appwar" description="create war pacakge for deploy">
-	<war destfile="productRatingSystem.war" webxml="${webContent}/WEB-INF/web.xml" manifest="${webContent}/META-INF/MANIFEST.MF">
+	<war destfile="ProductRatingSystem.war" webxml="${webContent}/WEB-INF/web.xml" manifest="${webContent}/META-INF/MANIFEST.MF">
 	  <fileset dir="${webContent}"/>
 	  <classes dir="build/classes"/>
 	</war>
