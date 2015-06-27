@@ -73,19 +73,11 @@ public class ProductStore {
 	}
 	
 	public void addProdcut(Product p){
-		if (stores!=null) {
-			synchronized (stores) {
-				stores.add(p);
-			}
-		}
+			stores.add(p);
 	}
 
 	public void modifyProdcut(int index,Product p){
-		if (stores!=null) {
-			synchronized (stores) {
-				stores.set(index, p);
-			}
-		}
+			stores.set(index, p);
 	}
 	
 	public ArrayList<Product> getProducts(){

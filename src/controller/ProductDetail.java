@@ -74,7 +74,9 @@ public class ProductDetail extends HttpServlet {
 			ServletContext ctx = getServletContext();
 			ProductStore store = (ProductStore) ctx.getAttribute("store");
 			Product p = store.getProdcut(Integer.parseInt(proid));
-			p.addRating(Integer.parseInt(selectedRate));
+			synchronized (p) {
+				p.addRating(Integer.parseInt(selectedRate));
+			}
 			store.modifyProdcut(Integer.parseInt(proid), p);
 			currentUser.setProductRating(Integer.parseInt(proid), Integer.parseInt(selectedRate));
 			current.setAttribute("currentUser", currentUser);
